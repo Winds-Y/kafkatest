@@ -15,9 +15,11 @@ import java.util.Properties;
  */
 public class TestKafkaConsumer {
     private static KafkaConsumer<String,String>consumer;
+    //在服务器上创建的topic：testkafka
     private final static String topic="testkafka";
     private TestKafkaConsumer(){
         Properties properties=new Properties();
+        //kafka服务器的ip地址
         properties.put("bootstrap.servers", "192.168.237.6:9092"); //每个消费者分配独立的组号
         properties.put("group.id", "test2"); //如果value合法，则自动提交偏移量
         properties.put("enable.auto.commit", "true"); //设置多久一次更新被消费消息的偏移量

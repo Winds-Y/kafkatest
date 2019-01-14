@@ -13,9 +13,11 @@ import java.util.Properties;
 //https://blog.csdn.net/galen2016/article/details/80752147
 public class TestKafkaProducer {
     private static KafkaProducer<String,String> producer;
+    //在服务器上创建的topic：testkafka
     private final static String topic="testkafka";
     private TestKafkaProducer(){
         Properties properties=new Properties();
+        //kafka服务器的ip地址
         properties.put("bootstrap.servers", "192.168.237.6:9092");
         properties.put("acks", "all");
         properties.put("retries", 0);
