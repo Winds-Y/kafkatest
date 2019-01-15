@@ -3,6 +3,8 @@ package application;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Properties;
 
 /**
@@ -29,8 +31,9 @@ public class TestKafkaProducer {
         producer= new KafkaProducer<>(properties);
     }
     private void produce(){
-        for(int i=0;i<10;i++){
-            String data="hahahahaha : "+i;
+        for(int i=0;i<5;i++){
+            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            String data="hi : "+df.format(new Date())+i;
             producer.send(new ProducerRecord<>(topic, i + "", data));
             System.out.println(data);
         }
